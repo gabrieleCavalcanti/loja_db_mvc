@@ -36,7 +36,7 @@ const produtoController = {
     /**
      * Insere um novo produto no banco de dados.
      * 
-     * Rota: **POST /produtos**
+     * Rota: POST /produtos
      * 
      * @async
      * @function incluirRegistro
@@ -68,7 +68,7 @@ const produtoController = {
         /**
      * Atualiza as informações de um produto existente.
      * 
-     * Rota: **PUT /produtos/:idProduto**
+     * Rota: PUT /produtos/:idProduto
      * 
      * @async
      * @function alterarProduto
@@ -112,7 +112,7 @@ const produtoController = {
       /**
      * Exclui um produto com base no ID informado.
      * 
-     * Rota: **DELETE /produtos/:idProduto**
+     * Rota: DELETE /produtos/:idProduto
      * 
      * @async
      * @function deletaProduto

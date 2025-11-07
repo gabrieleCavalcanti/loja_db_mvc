@@ -36,7 +36,7 @@ const clienteController = {
     /**
  * Insere um novo cliente no banco de dados.
  * 
- * Rota: **POST /clientes**
+ * Rota: POST /clientes
  * 
  * @async
  * @function incluirRegistro
@@ -73,7 +73,7 @@ const clienteController = {
     /**
     * Atualiza os dados de um cliente existente.
     * 
-    * Rota: **PUT /clientes/:idCliente**
+    * Rota: PUT /clientes/:idCliente
     * 
     * @async
     * @function alterarProduto
@@ -122,7 +122,7 @@ const clienteController = {
     /**
   * Exclui um cliente com base no ID.
   * 
-  * Rota: **DELETE /clientes/:idCliente**
+  * Rota: DELETE /clientes/:idCliente
   * 
   * @async
   * @function deletaProduto
