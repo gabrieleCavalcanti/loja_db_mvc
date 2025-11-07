@@ -3,8 +3,8 @@ const { clienteModel } = require('../models/clienteModel');
 const clienteController = {
 
     /**
-     * Retorna os produtos cadastrados
-     * Rota GET /produtos
+     * Retorna os clientes cadastrados
+     * Rota GET /clientes
      * @async
      * @function selecinaTodos
      * @param {Request} req Objeto da requisição HTTP
@@ -33,6 +33,17 @@ const clienteController = {
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+    /**
+ * Insere um novo cliente no banco de dados.
+ * 
+ * Rota: **POST /clientes**
+ * 
+ * @async
+ * @function incluirRegistro
+ * @param {Request} req Corpo da requisição deve conter { nome, cpf }
+ * @param {Response} res Objeto da resposta HTTP
+ * @returns {Promise<Response>} Retorna mensagem de sucesso ou erro
+ * */
     incluirRegistro: async (req, res) => {
         try {
             const { nome, cpf } = req.body;
@@ -59,6 +70,17 @@ const clienteController = {
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+    /**
+    * Atualiza os dados de um cliente existente.
+    * 
+    * Rota: **PUT /clientes/:idCliente**
+    * 
+    * @async
+    * @function alterarProduto
+    * @param {Request} req Deve conter o parâmetro de rota idCliente e opcionalmente { nome, cpf } no corpo
+    * @param {Response} res Objeto da resposta HTTP
+    * @returns {Promise<Response>} Retorna mensagem de sucesso, aviso ou erro
+    * */
     alterarProduto: async (req, res) => {
         try {
             const idCliente = Number(req.params.idCliente);
@@ -89,7 +111,7 @@ const clienteController = {
             }
 
             if (resulUpdate.affectedRows === 1 && resulUpdate.changedRows === 1) {
-                res.status(200).json({ message: 'Registro alterado com sucesso'});
+                res.status(200).json({ message: 'Registro alterado com sucesso' });
             }
 
         } catch (error) {
@@ -97,6 +119,17 @@ const clienteController = {
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+    /**
+  * Exclui um cliente com base no ID.
+  * 
+  * Rota: **DELETE /clientes/:idCliente**
+  * 
+  * @async
+  * @function deletaProduto
+  * @param {Request} req Deve conter o parâmetro de rota idCliente
+  * @param {Response} res Objeto da resposta HTTP
+  * @returns {Promise<Response>} Retorna mensagem de sucesso ou erro
+  * */
     deletaProduto: async (req, res) => {
         try {
             const idCliente = Number(req.params.idCliente);
@@ -115,7 +148,7 @@ const clienteController = {
                 return res.status(200).json({ message: 'Ocorreu um erro ao excluir o produto' });
             }
 
-            res.status(200).json({ message: 'Produto Excluido com sucesso'});
+            res.status(200).json({ message: 'Produto Excluido com sucesso' });
 
         } catch (error) {
             console.error(error);

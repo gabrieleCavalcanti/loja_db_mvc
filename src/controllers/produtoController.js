@@ -13,26 +13,37 @@ const produtoController = {
      */
     selecinaTodos: async (req, res) => {
         try {
-            const {idProduto} = req.query
+            const { idProduto } = req.query
 
-            
+
             if (idProduto || typeof idProduto == 'number') {
                 const resultado = await produtoModel.selectById(idProduto);
-                return res.status(200).json({data: resultado})
-            } 
-            
+                return res.status(200).json({ data: resultado })
+            }
+
             const resultado = await produtoModel.selectAll();
 
             if (resultado.length === 0) {
                 return res.status(200).json({ message: 'A consulta não retornou resultado' });
             }
-            
+
             return res.status(200).json(resultado);
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+    /**
+     * Insere um novo produto no banco de dados.
+     * 
+     * Rota: **POST /produtos**
+     * 
+     * @async
+     * @function incluirRegistro
+     * @param {Request} req Corpo da requisição deve conter { descricao, valor }
+     * @param {Response} res Objeto da resposta HTTP
+     * @returns {Promise<Response>} Retorna mensagem de sucesso ou erro.
+     * */
     incluirRegistro: async (req, res) => {
         try {
             const { descricao, valor } = req.body;
@@ -54,6 +65,17 @@ const produtoController = {
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+        /**
+     * Atualiza as informações de um produto existente.
+     * 
+     * Rota: **PUT /produtos/:idProduto**
+     * 
+     * @async
+     * @function alterarProduto
+     * @param {Request} req Deve conter o parâmetro de rota `idProduto` e opcionalmente `descricao` e `valor` no corpo.
+     * @param {Response} res Objeto da resposta HTTP
+     * @returns {Promise<Response>} Retorna mensagem de sucesso, aviso ou erro.
+     * */
     alterarProduto: async (req, res) => {
         try {
             const idProduto = Number(req.params.idProduto);
@@ -87,6 +109,17 @@ const produtoController = {
             res.status(500).json({ message: 'Ocorreu um erro no servidor', errorMessage: error.message });
         }
     },
+      /**
+     * Exclui um produto com base no ID informado.
+     * 
+     * Rota: **DELETE /produtos/:idProduto**
+     * 
+     * @async
+     * @function deletaProduto
+     * @param {Request} req Deve conter o parâmetro de rota `idProduto`
+     * @param {Response} res Objeto da resposta HTTP
+     * @returns {Promise<Response>} Retorna mensagem de sucesso ou erro.
+     * */
     deletaProduto: async (req, res) => {
         try {
             const idProduto = Number(req.params.idProduto);
@@ -105,7 +138,7 @@ const produtoController = {
                 return res.status(200).json({ message: 'Ocorreu um erro ao excluir o produto' });
             }
 
-            res.status(200).json({ message: 'Produto Excluido com sucesso'});
+            res.status(200).json({ message: 'Produto Excluido com sucesso' });
 
         } catch (error) {
             console.error(error);
