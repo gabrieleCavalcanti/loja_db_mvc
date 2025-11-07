@@ -1,0 +1,251 @@
+type: collection.insomnia.rest/5.0
+name: Loja_db
+meta:
+  id: wrk_b1e512293e644a639bf112f12f9144f3
+  created: 1761310806600
+  modified: 1761310806600
+  description: ""
+collection:
+  - name: Produtos
+    meta:
+      id: fld_b6bfe4e91a7d4af0bccaef8860f58c4e
+      created: 1761310890888
+      modified: 1761310908463
+      sortKey: -1761310890888
+      description: ""
+    children:
+      - url: http://localhost:8000/produtos/2
+        name: Deletar
+        meta:
+          id: req_e596929aec104303abc34a171d84ade9
+          created: 1762432846798
+          modified: 1762432963561
+          isPrivate: false
+          description: ""
+          sortKey: -1761314908418
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/produtos
+        name: SELECT
+        meta:
+          id: req_97777a9764a34b56b01389a20cdcb12c
+          created: 1762438118426
+          modified: 1762438821700
+          isPrivate: false
+          description: ""
+          sortKey: -1761314908668
+        method: GET
+        parameters:
+          - id: pair_d2cc8ed6bb6d4412a47ced04a0ccb883
+            name: idProduto
+            value: "1"
+            description: ""
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/produtos
+        name: Inserir
+        meta:
+          id: req_d4addb2fd8ce4fec8d085469ade68ed1
+          created: 1762438126453
+          modified: 1762438826232
+          isPrivate: false
+          description: ""
+          sortKey: -1761314908568
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "Alface",
+            	"valor": 5.90
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/produtos/2
+        name: Alterar
+        meta:
+          id: req_ec8caa298818451ea62386ebb6839db5
+          created: 1762438139715
+          modified: 1762438139715
+          isPrivate: false
+          description: ""
+          sortKey: -1761314908468
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"descricao": "Alface Americana"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Clientes
+    meta:
+      id: fld_7bffd568cb7f418dba4ce0652707c257
+      created: 1762438111684
+      modified: 1762516215480
+      sortKey: -1762438111684
+      description: ""
+    children:
+      - url: http://localhost:8000/clientes
+        name: SELECT
+        meta:
+          id: req_a4dca5074bb4470b9afe8be3b64b6011
+          created: 1761310909294
+          modified: 1762516220920
+          isPrivate: false
+          description: ""
+          sortKey: -1762516216662
+        method: GET
+        parameters:
+          - id: pair_d2cc8ed6bb6d4412a47ced04a0ccb883
+            name: idProduto
+            value: "1"
+            description: ""
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/clientes
+        name: Inserir
+        meta:
+          id: req_c518c473596349b49dab7c32cdc5ea2d
+          created: 1761314720563
+          modified: 1762516218642
+          isPrivate: false
+          description: ""
+          sortKey: -1762516216562
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"nome": "Gisele",
+            	"cpf": "99999999999"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/clientes/3
+        name: Alterar
+        meta:
+          id: req_eb5ff4beba79445195bbce5263be1981
+          created: 1762429638537
+          modified: 1762516223137
+          isPrivate: false
+          description: ""
+          sortKey: -1762516216462
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"cpf": "99999999999"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8000/clientes/2
+        name: Deletar
+        meta:
+          id: req_94f21a16a77d4b79b2b68ad03845e198
+          created: 1762438145740
+          modified: 1762516230429
+          isPrivate: false
+          description: ""
+          sortKey: -1762516216362
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.0.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_cc94e248cd0c124ace90033af04b72b3c8a97124
+    created: 1761310806607
+    modified: 1761310806607
+environments:
+  name: Base Environment
+  meta:
+    id: env_cc94e248cd0c124ace90033af04b72b3c8a97124
+    created: 1761310806603
+    modified: 1761310806603
+    isPrivate: false
